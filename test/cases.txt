@@ -121,4 +121,28 @@ Nasl(SimpleInstr(return, Identifier))
 return a[0];
 
 ==>
-Nasl(SimpleInstr(return, ArrayElem(Identifier,Integer)))
+Nasl(SimpleInstr(return,
+                 ArrayElem(Identifier,
+                           Integer)))
+
+# call
+
+return f();
+
+==>
+Nasl(SimpleInstr(return,
+                 FuncCall(Identifier,
+                          ArgList)))
+
+
+# call args
+
+return f(1, a, x: "abc");
+
+==>
+Nasl(SimpleInstr(return,
+                 FuncCall(Identifier,
+                          ArgList(Integer,
+                                  Identifier,
+                                  NamedArg(Identifier,
+                                           String)))))

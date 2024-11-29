@@ -45,6 +45,14 @@ SimpleInstr {
 
 //// Function Call
 
+FuncCall { Identifier ArgList }
+
+ArgList { '(' list<arg> ')' }
+
+arg { expr | NamedArg }
+
+NamedArg { Identifier ':' expr }
+
 //// Affectation
 
 ////
@@ -71,7 +79,7 @@ arrayData { atom | String '=>' atom }
 
 atom { Integer | String }
 
-var { Identifier | ArrayElem }
+var { Identifier | ArrayElem | FuncCall }
 
 IpAddr {
   Integer '.' Integer '.' Integer '.' Integer
@@ -110,7 +118,7 @@ kw<term> { @specialize[@name={term}]<identifier, term> }
   Comment[isolate] { '#' ![\n\r]* }
 
   // literal tokens
-  ';' '{' '}' '(' ')' '[' ']'
+  ';' '{' '}' '(' ')' '[' ']' '=>' ':'
 }
 
 //@external propSource highlighting from './highlight'
