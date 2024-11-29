@@ -43,6 +43,7 @@ SimpleInstr {
 
 expr {
   '(' expr ')'
+  | var
   | IpAddr
   | atom
   | ConstArray
@@ -55,6 +56,8 @@ ConstArray { '[' list<arrayData> ']' }
 arrayData { atom | String '=>' atom }
 
 atom { Integer | String }
+
+var { Identifier }
 
 IpAddr {
   Integer '.' Integer '.' Integer '.' Integer

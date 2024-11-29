@@ -108,3 +108,10 @@ return 'a\x062c';
 
 ==>
 Nasl(SimpleInstr(return, String))
+
+# var
+
+return a;
+
+==>
+Nasl(SimpleInstr(return, Identifier))
