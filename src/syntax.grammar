@@ -37,6 +37,7 @@ SimpleInstr {
 
 expr {
   '(' expr ')'
+  | IpAddr
   | atom
 }
 
@@ -44,6 +45,10 @@ expr {
 
 atom {
   Integer
+}
+
+IpAddr {
+  Integer '.' Integer '.' Integer '.' Integer
 }
 
 Identifier { identifier }
