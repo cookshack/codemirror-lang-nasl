@@ -36,7 +36,8 @@ SimpleInstr {
 //// Expression
 
 expr {
-  atom
+  '(' expr ')'
+  | atom
 }
 
 ////

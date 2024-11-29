@@ -51,3 +51,10 @@ return 9;
 
 ==>
 Nasl(SimpleInstr(return, Integer))
+
+# ()
+
+return (9);
+
+==>
+Nasl(SimpleInstr(return, Integer))
