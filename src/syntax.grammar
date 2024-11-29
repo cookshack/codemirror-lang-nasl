@@ -27,12 +27,23 @@ instr {
 //// "Simple" Instruction
 
 SimpleInstr {
-  kw<'break'>
+  kw<'return'> expr
+  | kw<'break'>
   | kw<'continue'>
   | () // NOP
 }
 
+//// Expression
+
+expr {
+  atom
+}
+
 ////
+
+atom {
+  Integer
+}
 
 Identifier { identifier }
 
@@ -47,6 +58,10 @@ kw<term> { @specialize[@name={term}]<identifier, term> }
 
   identifier {
     $[A-Za-z_] $[A-Za-z0-9_]*
+  }
+
+  Integer {
+    $[0-9]+
   }
 
   // literal tokens

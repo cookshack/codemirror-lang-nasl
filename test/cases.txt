@@ -44,3 +44,10 @@ Nasl(FuncDecl(function,
 
 ==>
 Nasl(Block(Block(SimpleInstr)))
+
+# return
+
+return 9;
+
+==>
+Nasl(SimpleInstr(return, Integer))
