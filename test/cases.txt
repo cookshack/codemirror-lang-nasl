@@ -79,3 +79,10 @@ return [1, 2];
 
 ==>
 Nasl(SimpleInstr(return, ConstArray(Integer, Integer)))
+
+# [=>]
+
+return ["something" => 1, 2, 'x' => 3];
+
+==>
+Nasl(SimpleInstr(return, ConstArray(String, Integer, Integer, String, Integer)))

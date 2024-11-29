@@ -33,6 +33,12 @@ SimpleInstr {
   | () // NOP
 }
 
+//// If
+
+//// Loops
+
+////
+
 //// Expression
 
 expr {
@@ -46,11 +52,9 @@ expr {
 
 ConstArray { '[' list<arrayData> ']' }
 
-arrayData { atom }
+arrayData { atom | String '=>' atom }
 
-atom {
-  Integer
-}
+atom { Integer | String }
 
 IpAddr {
   Integer '.' Integer '.' Integer '.' Integer
@@ -73,6 +77,19 @@ kw<term> { @specialize[@name={term}]<identifier, term> }
 
   Integer {
     $[0-9]+
+  }
+
+  xChar { $[0-9a-fA-F\n] }
+
+  char {
+    '\\' $[\\nftrv"0'\n]
+    | '\\x' xChar xChar xChar
+    | !['\\]
+  }
+
+  String {
+    "'" char* "'"
+    | '"' !["]* '"'
   }
 
   Comment[isolate] { '#' ![\n\r]* }
