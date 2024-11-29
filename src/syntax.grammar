@@ -9,6 +9,8 @@ list<x> { (x ',')* x? }
 
 @top Nasl { (instr | FuncDecl)* }
 
+//// Function Declaration
+
 FuncDecl { kw<'function'> identifier ArgDecl Block }
 
 ArgDecl { '(' list<Identifier> ')' }
@@ -39,6 +41,16 @@ SimpleInstr {
 
 ////
 
+//// Include
+
+//// Function Call
+
+//// Affectation
+
+////
+
+Identifier { identifier }
+
 //// Expression
 
 expr {
@@ -62,8 +74,6 @@ var { Identifier }
 IpAddr {
   Integer '.' Integer '.' Integer '.' Integer
 }
-
-Identifier { identifier }
 
 @skip { whitespace | Comment }
 
