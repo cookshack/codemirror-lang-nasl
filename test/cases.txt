@@ -65,3 +65,10 @@ return 0.1.2.3;
 
 ==>
 Nasl(SimpleInstr(return, IpAddr(Integer, Integer, Integer, Integer)))
+
+# #
+
+# comment
+
+==>
+Nasl(Comment)
