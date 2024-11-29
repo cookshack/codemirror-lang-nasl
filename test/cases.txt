@@ -115,3 +115,10 @@ return a;
 
 ==>
 Nasl(SimpleInstr(return, Identifier))
+
+# array el
+
+return a[0];
+
+==>
+Nasl(SimpleInstr(return, ArrayElem(Identifier,Integer)))

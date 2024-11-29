@@ -51,6 +51,8 @@ SimpleInstr {
 
 Identifier { identifier }
 
+ArrayElem { Identifier '[' expr ']' }
+
 //// Expression
 
 expr {
@@ -69,7 +71,7 @@ arrayData { atom | String '=>' atom }
 
 atom { Integer | String }
 
-var { Identifier }
+var { Identifier | ArrayElem }
 
 IpAddr {
   Integer '.' Integer '.' Integer '.' Integer
