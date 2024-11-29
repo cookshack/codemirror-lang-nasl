@@ -86,3 +86,25 @@ return ["something" => 1, 2, 'x' => 3];
 
 ==>
 Nasl(SimpleInstr(return, ConstArray(String, Integer, Integer, String, Integer)))
+
+# str nl
+
+return "ab\
+d";
+
+==>
+Nasl(SimpleInstr(return, String))
+
+# str esc
+
+return 'a b c \\ \n\f\t\r \v \" \' hi \0';
+
+==>
+Nasl(SimpleInstr(return, String))
+
+# str esc x
+
+return 'a\x062c';
+
+==>
+Nasl(SimpleInstr(return, String))
