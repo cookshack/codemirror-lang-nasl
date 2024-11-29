@@ -39,9 +39,14 @@ expr {
   '(' expr ')'
   | IpAddr
   | atom
+  | ConstArray
 }
 
 ////
+
+ConstArray { '[' list<arrayData> ']' }
+
+arrayData { atom }
 
 atom {
   Integer
@@ -73,7 +78,7 @@ kw<term> { @specialize[@name={term}]<identifier, term> }
   Comment[isolate] { '#' ![\n\r]* }
 
   // literal tokens
-  ';' '{' '}' '(' ')'
+  ';' '{' '}' '(' ')' '[' ']'
 }
 
 //@external propSource highlighting from './highlight'

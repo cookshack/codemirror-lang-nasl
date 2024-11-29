@@ -72,3 +72,10 @@ Nasl(SimpleInstr(return, IpAddr(Integer, Integer, Integer, Integer)))
 
 ==>
 Nasl(Comment)
+
+# []
+
+return [1, 2];
+
+==>
+Nasl(SimpleInstr(return, ConstArray(Integer, Integer)))
