@@ -1,0 +1,55 @@
+@precedence {
+}
+
+//// Templates
+
+list<x> { (x ',')* x? }
+
+//// Root
+
+@top Nasl { (instr | FuncDecl)* }
+
+FuncDecl { kw<'function'> identifier ArgDecl Block }
+
+ArgDecl { '(' list<Identifier> ')' }
+
+//// Block
+
+Block { '{' instr* '}' }
+
+//// Instruction
+
+instr {
+  SimpleInstr ';'
+}
+
+//// "Simple" Instruction
+
+SimpleInstr {
+  kw<'break'>
+  | kw<'continue'>
+  | () // NOP
+}
+
+////
+
+Identifier { identifier }
+
+@skip { whitespace }
+
+kw<term> { @specialize[@name={term}]<identifier, term> }
+
+@tokens {
+  whitespace {
+    ($[ \t\r\n] | '\r'? '\n')+
+  }
+
+  identifier {
+    $[A-Za-z_] $[A-Za-z0-9_]*
+  }
+
+  // literal tokens
+  ';' '{' '}' '(' ')'
+}
+
+//@external propSource highlighting from './highlight'

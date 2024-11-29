@@ -1,0 +1,37 @@
+{
+  "name": "@cookshack/codemirror-lang-nasl",
+  "version": "0.1.1",
+  "description": "NASL language support for CodeMirror 6",
+  "homepage": "https://git.sr.ht/~mattmundell/codemirror-lang-nasl",
+  "scripts": {
+    "test": "mocha test/test.js",
+    "prepare": "rollup -c"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://git.sr.ht/~mattmundell/codemirror-lang-nasl"
+  },
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "exports": {
+    "import": "./dist/index.js",
+    "require": "./dist/index.cjs"
+  },
+  "types": "dist/index.d.ts",
+  "sideEffects": false,
+  "dependencies": {
+    "@codemirror/autocomplete": "^6.18.1",
+    "@codemirror/language": "^6.0.0",
+    "@lezer/highlight": "^1.2.1",
+    "@lezer/lr": "^1.0.0"
+  },
+  "devDependencies": {
+    "@lezer/generator": "^1.0.0",
+    "lezer-utils": "^0.1.0",
+    "mocha": "^10.7.3",
+    "rollup": "^4.21.3",
+    "rollup-plugin-dts": "^6.1.1"
+  },
+  "license": "MIT"
+}

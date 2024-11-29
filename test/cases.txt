@@ -1,0 +1,35 @@
+# Empty doc
+
+==>
+Nasl()
+
+# SimpleInstr
+
+break;
+
+==>
+Nasl(SimpleInstr(break))
+
+# FuncDecl
+
+function f(a, b) {
+  continue;
+  break;
+}
+
+==>
+Nasl(FuncDecl(function,
+              ArgDecl(Identifier, Identifier),
+              Block(SimpleInstr(continue),
+                    SimpleInstr(break))))
+
+# NOP
+
+function f() {
+  ;
+}
+
+==>
+Nasl(FuncDecl(function,
+              ArgDecl(),
+              Block(SimpleInstr)))
