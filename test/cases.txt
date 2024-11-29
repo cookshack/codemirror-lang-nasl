@@ -33,3 +33,14 @@ function f() {
 Nasl(FuncDecl(function,
               ArgDecl(),
               Block(SimpleInstr)))
+
+# Instr Block
+
+{
+ {
+   ;
+ }
+}
+
+==>
+Nasl(Block(Block(SimpleInstr)))

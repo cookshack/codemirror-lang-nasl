@@ -21,6 +21,7 @@ Block { '{' instr* '}' }
 
 instr {
   SimpleInstr ';'
+  | Block
 }
 
 //// "Simple" Instruction
