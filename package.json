@@ -6,7 +6,7 @@
   "scripts": {
     "check": "NODE_OPTIONS=--disable-warning=ExperimentalWarning npx eslint --no-warn-ignored -f ./eslint-formatter.mjs src/*.js",
     "test": "mocha test/test.js",
-    "prepare": "rollup -c"
+    "prepare": "husky -c && rollup"
   },
   "repository": {
     "type": "git",
@@ -31,6 +31,7 @@
     "@cookshack/eslint-config": "^0.1.5",
     "@lezer/generator": "^1.0.0",
     "eslint": "^9.16.0",
+    "husky": "^9.1.7",
     "lezer-utils": "^0.1.0",
     "mocha": "^10.7.3",
     "rollup": "^4.28.0",
