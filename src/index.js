@@ -28,7 +28,7 @@ parser = Grammar.parser.configure({ props: props })
 /// A language provider for NASL, including highlighting and indentation
 /// information.
 export
-const lr = LRLanguage.define({ name: 'zig',
+const lr = LRLanguage.define({ name: 'NASL',
                                parser: parser,
                                languageData: data })
 
