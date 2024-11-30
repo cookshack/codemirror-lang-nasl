@@ -106,6 +106,7 @@ postPreIncr { '++' lvalue | '--' lvalue | lvalue '++' | lvalue '--' }
 expr {
   '(' expr ')'
   | expr !right '&&' expr
+  | '!' expr
   | postPreIncr
   | var
   | Aff
@@ -163,6 +164,7 @@ kw<term> { @specialize[@name={term}]<identifier, term> }
   // literal tokens
   ';' '{' '}' '(' ')' '[' ']' '=>' ':' '++' '--'
   '=' '+=' '-=' '*=' '/=' '%=' '>>=' '>>>=' '<<='
+  '&&' '!'
 }
 
 //@external propSource highlighting from './highlight'

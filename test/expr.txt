@@ -18,3 +18,11 @@ return 0 && 1 && 0;
 
 ==>
 Nasl(SimpleInstr(return, Integer, Integer, Integer))
+
+# !
+
+return !a;
+
+==>
+Nasl(SimpleInstr(return, Identifier))
+
