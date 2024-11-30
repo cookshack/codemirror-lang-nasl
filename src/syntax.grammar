@@ -12,7 +12,7 @@ list<x> { (x ',')* x? }
 
 //// Function Declaration
 
-FuncDecl { kw<'function'> identifier ArgDecl Block }
+FuncDecl { kw<'function'> Identifier ArgDecl Block }
 
 ArgDecl { '(' list<Identifier> ')' }
 
@@ -81,7 +81,7 @@ ArgList { '(' list<arg> ')' }
 
 arg { expr | NamedArg }
 
-NamedArg { Identifier ':' expr }
+NamedArg { Identifier ':' Expr }
 
 //// Affectation
 
@@ -130,6 +130,8 @@ expr {
   | atom
   | ConstArray
 }
+
+Expr { expr }
 
 ParenExpr { '(' expr ')' }
 
@@ -199,4 +201,4 @@ ckw<term> { @extend[@name={term}]<identifier, term> }
   '><' '>!<' '=~' '!~' '<' '>' '==' '!=' '>=' '>=' '<='
 }
 
-//@external propSource highlighting from './highlight'
+@external propSource highlighting from './highlight'

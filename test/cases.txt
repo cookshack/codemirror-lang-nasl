@@ -19,6 +19,7 @@ function f(a, b) {
 
 ==>
 Nasl(FuncDecl(function,
+              Identifier,
               ArgDecl(Identifier, Identifier),
               Block(SimpleInstr(continue),
                     SimpleInstr(break))))
@@ -31,6 +32,7 @@ function f() {
 
 ==>
 Nasl(FuncDecl(function,
+              Identifier,
               ArgDecl(),
               Block(SimpleInstr)))
 

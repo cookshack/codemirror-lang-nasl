@@ -28,6 +28,7 @@ function f(x) {}
 
 ==>
 Nasl(FuncDecl(function,
+              Identifier,
               ArgDecl(Identifier),
               Block))
 
@@ -39,4 +40,4 @@ return f(x: "abc");
 Nasl(SimpleInstr(return,
                  FuncCall(Identifier,
                           ArgList(NamedArg(Identifier,
-                                           String)))))
+                                           Expr(String))))))
