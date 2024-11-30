@@ -151,11 +151,11 @@ IpAddr {
 
 // Local var decl
 
-loc { kw<'local_var'> ArgDecl }
+loc { kw<'local_var'> list<Identifier> }
 
 // Global var decl
 
-glob { kw<'global_var'> ArgDecl }
+glob { kw<'global_var'> list<Identifier> }
 
 ////
 
