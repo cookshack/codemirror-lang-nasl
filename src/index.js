@@ -17,7 +17,7 @@ props = [ indentNodeProp.add({ 'Block': delimitedIndent({ closing: '}' }),
                                                                                     align: true }),
                                IfBlock: continuedIndent({ except: /^\s*({|else\b)/ }),
                                WhileLoop: continuedIndent() }),
-          foldNodeProp.add({ 'InitList Block ErrBlock SwitchBlock ContainerBlock ParamDeclList FnCallArgs AsmParams': foldInside }) ]
+          foldNodeProp.add({ 'Block ArgDecl ArgList': foldInside }) ]
 
 data = { commentTokens: { line: '#' },
          closeBrackets: { brackets: [ '(', '[', '{', "'", '"' ] },
