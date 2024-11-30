@@ -45,12 +45,14 @@ IfBlock { kw<'if'> '(' expr ')' instr (!else kw<'else'> instr)? }
 
 //// Loops
 
-loop { WhileLoop | RepeatLoop }
+loop { WhileLoop | RepeatLoop | ForeachLoop }
 
-WhileLoop { kw<'while'> WhileExpr instr }
-WhileExpr { '(' expr ')' }
+WhileLoop { kw<'while'> LoopExpr instr }
+LoopExpr { '(' expr ')' }
 
 RepeatLoop { kw<'repeat'> instr kw<'until'> expr ';' }
+
+ForeachLoop { kw<'foreach'> Identifier LoopExpr instr }
 
 ////
 

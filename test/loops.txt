@@ -5,7 +5,7 @@ while (1)
 
 ==>
 Nasl(WhileLoop(while,
-               WhileExpr(Integer),
+               LoopExpr(Integer),
                SimpleInstr(FuncCall(Identifier,
                                     ArgList))))
 
@@ -19,3 +19,14 @@ Nasl(RepeatLoop(repeat,
                                      ArgList)),
                 until,
                 Identifier))
+
+# foreach
+
+foreach a (b) f(a);
+
+==>
+Nasl(ForeachLoop(foreach,
+                 Identifier,
+                 LoopExpr(Identifier),
+                 SimpleInstr(FuncCall(Identifier,
+                                      ArgList(Identifier)))))
