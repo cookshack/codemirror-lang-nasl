@@ -164,3 +164,16 @@ Nasl(IfBlock(if,
              Integer,
              SimpleInstr(return,
                          Integer)))
+
+# else
+
+if (a) return 1; else return 2;
+
+==>
+Nasl(IfBlock(if,
+             Identifier,
+             SimpleInstr(return,
+                         Integer),
+             else,
+             SimpleInstr(return,
+                         Integer)))

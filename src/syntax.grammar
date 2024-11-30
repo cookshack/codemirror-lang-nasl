@@ -1,4 +1,5 @@
 @precedence {
+  else @right
 }
 
 //// Templates
@@ -39,7 +40,7 @@ SimpleInstr {
 
 //// If
 
-IfBlock { kw<'if'> '(' expr ')' instr }
+IfBlock { kw<'if'> '(' expr ')' instr (!else kw<'else'> instr)? }
 
 //// Loops
 
