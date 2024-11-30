@@ -146,3 +146,11 @@ Nasl(SimpleInstr(return,
                                   Identifier,
                                   NamedArg(Identifier,
                                            String)))))
+
+# simple call
+
+f();
+
+==>
+Nasl(SimpleInstr(FuncCall(Identifier,
+                          ArgList)))

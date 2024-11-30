@@ -29,7 +29,8 @@ instr {
 //// "Simple" Instruction
 
 SimpleInstr {
-  kw<'return'> expr
+  FuncCall
+  | kw<'return'> expr
   | kw<'break'>
   | kw<'continue'>
   | () // NOP
