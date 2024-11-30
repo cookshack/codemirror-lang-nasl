@@ -79,3 +79,11 @@ return a;
 
 ==>
 Nasl(SimpleInstr(return, Identifier))
+
+# inc
+
+
+include ('abc.inc');
+
+==>
+Nasl(SimpleInstr(include, IncExpr(String)))

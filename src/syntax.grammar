@@ -36,6 +36,7 @@ SimpleInstr {
   | postPreIncr
   | FuncCall
   | kw<'return'> expr?
+  | inc
   | kw<'break'>
   | kw<'continue'>
   | () // NOP
@@ -64,6 +65,9 @@ AffFunc { aff | postPreIncr | FuncCall | () /* NOP */ }
 ////
 
 //// Include
+
+inc { kw<'include'> IncExpr }
+IncExpr { '(' String ')' }
 
 //// Function Call
 
