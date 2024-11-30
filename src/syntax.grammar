@@ -84,7 +84,7 @@ NamedArg { Identifier ':' Expr }
 
 //// Affectation
 
-aff { lvalue AssignOp expr }
+aff { lvalue (AssignOp | UpdateOp) expr }
 
 Aff { aff }
 
@@ -144,13 +144,15 @@ VarDecl { (kw<'local_var'> | kw<'global_var'>) list<Identifier> }
 
 ArithOp { '+' | '-' | '*' | '**' | '/' | '%'}
 
-AssignOp { '=' | '+=' | '-=' | '*=' | '/=' | '%=' | '>>=' | '>>>=' | '<<=' }
+AssignOp { '=' }
 
 BitOp { '&' | '^' | '|' | '>>' | '>>>' | '<<' }
 
 CmpOp { '><' | '>!<' | '=~' | '!~' | '<' | '>' | '==' | '!=' | '>=' | '<=' }
 
 LogicOp { '&&' | '||' }
+
+UpdateOp { '+=' | '-=' | '*=' | '/=' | '%=' | '>>=' | '>>>=' | '<<=' }
 
 ////
 

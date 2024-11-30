@@ -11,4 +11,4 @@ return a >>>= 1;
 
 ==>
 Nasl(SimpleInstr(return,
-                 Aff(Identifier, AssignOp, Integer)))
+                 Aff(Identifier, UpdateOp, Integer)))
