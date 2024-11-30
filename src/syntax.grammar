@@ -124,7 +124,7 @@ expr {
   | expr !right ('*' | '**' | '/' | '%' | '&' | '^' | '|' | '>>' | '>>>' | '<<') expr
   | postPreIncr
   // match nomatch re_match re_nomatch ...
-  | expr !right ('><' | '>!<' | '=~' | '!~' | '<' | '>' | '==' | '!=' | '>=' | '>=' | '<=') expr
+  | expr !right ('><' | '>!<' | '=~' | '!~' | '<' | '>' | '==' | '!=' | '>=' | '<=') expr
   | var
   | Aff
   | IpAddr
