@@ -45,10 +45,12 @@ IfBlock { kw<'if'> '(' expr ')' instr (!else kw<'else'> instr)? }
 
 //// Loops
 
-loop { WhileLoop }
+loop { WhileLoop | RepeatLoop }
 
 WhileLoop { kw<'while'> WhileExpr instr }
 WhileExpr { '(' expr ')' }
+
+RepeatLoop { kw<'repeat'> instr kw<'until'> expr ';' }
 
 ////
 

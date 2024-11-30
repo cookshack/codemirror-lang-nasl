@@ -8,3 +8,14 @@ Nasl(WhileLoop(while,
                WhileExpr(Integer),
                SimpleInstr(FuncCall(Identifier,
                                     ArgList))))
+
+# repeat
+
+repeat f(); until a;
+
+==>
+Nasl(RepeatLoop(repeat,
+                SimpleInstr(FuncCall(Identifier,
+                                     ArgList)),
+                until,
+                Identifier))
