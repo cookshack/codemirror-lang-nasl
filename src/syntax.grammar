@@ -47,7 +47,8 @@ SimpleInstr {
 
 //// If
 
-IfBlock { kw<'if'> '(' expr ')' instr (!right kw<'else'> instr)? }
+IfBlock { kw<'if'> IfExpr instr (!right kw<'else'> instr)? }
+IfExpr { '(' expr ')' }
 
 //// Loops
 
