@@ -34,6 +34,7 @@ instr {
 SimpleInstr {
   aff
   | postPreIncr
+  | rep
   | FuncCall
   | kw<'return'> expr?
   | inc
@@ -62,7 +63,9 @@ ForeachLoop { kw<'foreach'> Identifier LoopExpr instr }
 
 AffFunc { aff | postPreIncr | FuncCall | () /* NOP */ }
 
-////
+//// Repitition
+
+rep { FuncCall ckw<'x'> expr }
 
 //// Include
 
@@ -143,7 +146,10 @@ IpAddr {
 
 @skip { whitespace | Comment }
 
+// Keyword
 kw<term> { @specialize[@name={term}]<identifier, term> }
+// Contextual keyword
+ckw<term> { @extend[@name={term}]<identifier, term> }
 
 @tokens {
   whitespace {

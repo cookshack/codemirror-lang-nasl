@@ -10,7 +10,7 @@ Nasl(SimpleInstr(return,
 
 # call args
 
-return f(1, a, x: "abc");
+return f(1, a, b: "abc");
 
 ==>
 Nasl(SimpleInstr(return,

@@ -1,0 +1,42 @@
+# rep
+
+f() x 4;
+
+==>
+Nasl(SimpleInstr(FuncCall(Identifier,
+                          ArgList),
+                 x,
+                 Integer))
+
+# var
+
+return x;
+
+==>
+Nasl(SimpleInstr(return, Identifier))
+
+# var aff
+
+x = 1;
+
+==>
+Nasl(SimpleInstr(Identifier, Integer))
+
+# fn arg
+
+function f(x) {}
+
+==>
+Nasl(FuncDecl(function,
+              ArgDecl(Identifier),
+              Block))
+
+# call arg
+
+return f(x: "abc");
+
+==>
+Nasl(SimpleInstr(return,
+                 FuncCall(Identifier,
+                          ArgList(NamedArg(Identifier,
+                                           String)))))
