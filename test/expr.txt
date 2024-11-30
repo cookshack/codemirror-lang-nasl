@@ -26,3 +26,9 @@ return !a;
 ==>
 Nasl(SimpleInstr(return, Identifier))
 
+# ||
+
+return 0 || 1;
+
+==>
+Nasl(SimpleInstr(return, Integer, Integer))
