@@ -32,7 +32,8 @@ instr {
 //// "Simple" Instruction
 
 SimpleInstr {
-  FuncCall
+  postPreIncr
+  | FuncCall
   | kw<'return'> expr?
   | kw<'break'>
   | kw<'continue'>
@@ -72,14 +73,19 @@ NamedArg { Identifier ':' expr }
 
 ////
 
+lvalue { Identifier | ArrayElem }
+
 Identifier { identifier }
 
 ArrayElem { Identifier '[' expr ']' }
+
+postPreIncr { '++' lvalue | '--' lvalue | lvalue '++' | lvalue '--' }
 
 //// Expression
 
 expr {
   '(' expr ')'
+  | postPreIncr
   | var
   | IpAddr
   | atom
@@ -133,7 +139,7 @@ kw<term> { @specialize[@name={term}]<identifier, term> }
   Comment[isolate] { '#' ![\n\r]* }
 
   // literal tokens
-  ';' '{' '}' '(' ')' '[' ']' '=>' ':'
+  ';' '{' '}' '(' ')' '[' ']' '=>' ':' '++' '--'
 }
 
 //@external propSource highlighting from './highlight'

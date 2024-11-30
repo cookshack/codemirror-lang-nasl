@@ -184,3 +184,17 @@ Nasl(IfBlock(if,
              else,
              SimpleInstr(return,
                          Integer)))
+
+# ++ simple
+
+a++;
+
+==>
+Nasl(SimpleInstr(Identifier))
+
+# ++ expr
+
+return --a;
+
+==>
+Nasl(SimpleInstr(return, Identifier))
