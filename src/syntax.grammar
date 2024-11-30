@@ -47,7 +47,10 @@ IfBlock { kw<'if'> '(' expr ')' instr (!else kw<'else'> instr)? }
 
 //// Loops
 
-loop { WhileLoop | RepeatLoop | ForeachLoop }
+loop { ForLoop | WhileLoop | RepeatLoop | ForeachLoop }
+
+ForLoop { kw<'for'> ForExpr instr }
+ForExpr { '(' AffFunc ';' expr ';' AffFunc ')' }
 
 WhileLoop { kw<'while'> LoopExpr instr }
 LoopExpr { '(' expr ')' }
@@ -55,6 +58,8 @@ LoopExpr { '(' expr ')' }
 RepeatLoop { kw<'repeat'> instr kw<'until'> expr ';' }
 
 ForeachLoop { kw<'foreach'> Identifier LoopExpr instr }
+
+AffFunc { aff | postPreIncr | FuncCall | () /* NOP */ }
 
 ////
 

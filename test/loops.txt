@@ -1,3 +1,27 @@
+# for
+
+for (i = 10; i; i--)
+  f();
+
+==>
+Nasl(ForLoop(for,
+             ForExpr(AffFunc(Identifier, Integer),
+                     Identifier,
+                     AffFunc(Identifier)),
+             SimpleInstr(FuncCall(Identifier,
+                                  ArgList))))
+
+# for empty
+
+for (;i;) {}
+
+==>
+Nasl(ForLoop(for,
+             ForExpr(AffFunc,
+                     Identifier,
+                     AffFunc),
+             Block))
+
 # while
 
 while (1)
