@@ -39,3 +39,17 @@ return 1 + 2 - 3;
 
 ==>
 Nasl(SimpleInstr(return, Integer, Integer, Integer))
+
+# -
+
+return -1;
+
+==>
+Nasl(SimpleInstr(return, Integer))
+
+# ~
+
+return ~1;
+
+==>
+Nasl(SimpleInstr(return, Integer))
