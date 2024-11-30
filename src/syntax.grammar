@@ -102,16 +102,15 @@ postPreIncr { '++' lvalue | '--' lvalue | lvalue '++' | lvalue '--' }
 
 expr {
   ParenExpr
-  | expr !right '&&' expr
+  | expr !right LogicOp expr
   | '!' expr
-  | expr !right '||' expr
   | expr !right ArithOp expr
   | '-' expr
   | '~' expr
-  | expr !right ('&' | '^' | '|' | '>>' | '>>>' | '<<') expr
+  | expr !right BitOp expr
   | postPreIncr
   // match nomatch re_match re_nomatch ...
-  | expr !right ('><' | '>!<' | '=~' | '!~' | '<' | '>' | '==' | '!=' | '>=' | '<=') expr
+  | expr !right CmpOp expr
   | var
   | Aff
   | IpAddr
@@ -146,6 +145,12 @@ VarDecl { (kw<'local_var'> | kw<'global_var'>) list<Identifier> }
 ArithOp { '+' | '-' | '*' | '**' | '/' | '%'}
 
 AssignOp { '=' | '+=' | '-=' | '*=' | '/=' | '%=' | '>>=' | '>>>=' | '<<=' }
+
+BitOp { '&' | '^' | '|' | '>>' | '>>>' | '<<' }
+
+CmpOp { '><' | '>!<' | '=~' | '!~' | '<' | '>' | '==' | '!=' | '>=' | '<=' }
+
+LogicOp { '&&' | '||' }
 
 ////
 
@@ -185,9 +190,7 @@ ckw<term> { @extend[@name={term}]<identifier, term> }
   Comment[isolate] { '#' ![\n\r]* }
 
   // literal tokens
-  ';' '{' '}' '(' ')' '[' ']' '=>' ':' '++' '--'
-  '&&' '!' '||' '~' '&' '^' '' '>>' '>>>' '<<'
-  '><' '>!<' '=~' '!~' '<' '>' '==' '!=' '>=' '>=' '<='
+  ';' '{' '}' '(' ')' '[' ']' '=>' ':' '++' '--' '!' '~'
 }
 
 @external propSource highlighting from './highlight'

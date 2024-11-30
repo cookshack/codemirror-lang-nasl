@@ -10,9 +10,9 @@ export const highlighting = styleTags({
 
   ArithOp: t.arithmeticOperator,
   AssignOp: t.definitionOperator,
-  LogicOp: t.logicOperator,
-  BitwiseOp: t.bitwiseOperator,
+  BitOp: t.bitwiseOperator,
   CompareOp: t.compareOperator,
+  LogicOp: t.logicOperator,
   UpdateOp: t.updateOperator,
   Comment: t.lineComment,
   Integer: t.number,

@@ -10,14 +10,14 @@ Nasl(SimpleInstr(return, ParenExpr(Integer)))
 return 0 && 1;
 
 ==>
-Nasl(SimpleInstr(return, Integer, Integer))
+Nasl(SimpleInstr(return, Integer, LogicOp, Integer))
 
 # && prec
 
 return 0 && 1 && 0;
 
 ==>
-Nasl(SimpleInstr(return, Integer, Integer, Integer))
+Nasl(SimpleInstr(return, Integer, LogicOp, Integer, LogicOp, Integer))
 
 # !
 
@@ -31,7 +31,7 @@ Nasl(SimpleInstr(return, Identifier))
 return 0 || 1;
 
 ==>
-Nasl(SimpleInstr(return, Integer, Integer))
+Nasl(SimpleInstr(return, Integer, LogicOp, Integer))
 
 # + -
 
@@ -59,11 +59,13 @@ Nasl(SimpleInstr(return, Integer))
 return 1 * 2 ** 3 / 4 % 5 & 6 ^ 7 | 8 >> 9 >>> 10 << 11;
 
 ==>
-Nasl(SimpleInstr(return, Integer, ArithOp, Integer, ArithOp, Integer, ArithOp, Integer, ArithOp, Integer, Integer, Integer, Integer, Integer, Integer, Integer))
+Nasl(SimpleInstr(return, Integer, ArithOp, Integer, ArithOp, Integer, ArithOp, Integer, ArithOp, Integer,
+                 BitOp, Integer, BitOp, Integer, BitOp, Integer, BitOp, Integer, BitOp, Integer, BitOp, Integer))
 
 # comp
 
 return 1 >< 2 >!< 3 =~ 4 !~ 5 < 6 > 7 == 8 != 9 >= 10 <= 11;
 
 ==>
-Nasl(SimpleInstr(return, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer))
+Nasl(SimpleInstr(return, Integer, CmpOp, Integer, CmpOp, Integer, CmpOp, Integer, CmpOp, Integer, CmpOp, Integer,
+                 CmpOp, Integer, CmpOp, Integer, CmpOp, Integer, CmpOp, Integer, CmpOp, Integer))
