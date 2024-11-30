@@ -4,10 +4,8 @@ import { completeFromList, ifNotIn } from '@codemirror/autocomplete'
 
 let props, data, parser, keywords, skipComplete, completionSource
 
-keywords = [ 'addrspace', 'align', 'allowzero', 'and', 'anyframe', 'anytype', 'asm', 'async', 'await', 'break', 'c', 'callconv', 'catch',
-             'comptime', 'const', 'continue', 'defer', 'else', 'enum', 'errdefer', 'error', 'export', 'extern', 'fn', 'for', 'if', 'inline',
-             'linksection', 'noalias', 'noinline', 'nosuspend', 'opaque', 'or', 'orelse', 'packed', 'pub', 'resume', 'return', 'struct',
-             'suspend', 'switch', 'test', 'threadlocal', 'try', 'union', 'unreachable', 'usingnamespace', 'var', 'volatile', 'while' ]
+keywords = [ 'break', 'continue', 'else', 'for', 'foreach', 'function', 'global_var', 'if', 'include',
+             'local_var', 'repeat', 'return', 'until', 'while', 'x' ]
 
 skipComplete = [ 'ContainerDocComment', 'DocComment', 'FieldAccess', 'LineComment', 'StringLiteral', 'StringLiteralSingle' ]
 
