@@ -1,0 +1,23 @@
+# []
+
+return [1, 2];
+
+==>
+Nasl(SimpleInstr(return, ConstArray(Integer, Integer)))
+
+# [=>]
+
+return ["something" => 1, 2, 'x' => 3];
+
+==>
+Nasl(SimpleInstr(return, ConstArray(String, Integer, Integer, String, Integer)))
+
+
+# array el
+
+return a[0];
+
+==>
+Nasl(SimpleInstr(return,
+                 ArrayElem(Identifier,
+                           Integer)))
