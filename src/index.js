@@ -7,7 +7,7 @@ let props, data, parser, keywords, skipComplete, completionSource
 keywords = [ 'break', 'continue', 'else', 'for', 'foreach', 'function', 'global_var', 'if', 'include',
              'local_var', 'repeat', 'return', 'until', 'while', 'x' ]
 
-skipComplete = [ 'ContainerDocComment', 'DocComment', 'FieldAccess', 'LineComment', 'StringLiteral', 'StringLiteralSingle' ]
+skipComplete = [ 'Comment', 'String' ]
 
 completionSource = ifNotIn(skipComplete,
                            completeFromList(keywords.map(kw => ({ label: kw, type: 'keyword' }))))
