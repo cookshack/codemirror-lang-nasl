@@ -32,7 +32,7 @@ instr {
 
 SimpleInstr {
   FuncCall
-  | kw<'return'> expr
+  | kw<'return'> expr?
   | kw<'break'>
   | kw<'continue'>
   | () // NOP
