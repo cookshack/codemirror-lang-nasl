@@ -12,16 +12,11 @@ skipComplete = [ 'Comment', 'String' ]
 completionSource = ifNotIn(skipComplete,
                            completeFromList(keywords.map(kw => ({ label: kw, type: 'keyword' }))))
 
-props = [ indentNodeProp.add({ 'InitList Block ErrBlock SwitchBlock ContainerBlock': delimitedIndent({ closing: '}' }),
-                               'ParamDeclList FnCallArgs': delimitedIndent({ closing: ')',
-                                                                             align: true }),
-                               AsmParams: delimitedIndent({ closing: ')',
-                                                            align: false }),
-                               'AsmOutList AsmInList AsmClobList': context => context.baseIndent + 2, // ': '
-                               SwitchProng: context => context.baseIndent + context.unit,
-                               IfStatement: continuedIndent({ except: /^\s*({|else\b)/ }),
-                               MultiStringLiteral: continuedIndent(),
-                               WhileStatement: continuedIndent() }),
+props = [ indentNodeProp.add({ 'Block': delimitedIndent({ closing: '}' }),
+                               'ArgDecl ForExpr IncExpr ArgList': delimitedIndent({ closing: ')',
+                                                                                    align: true }),
+                               IfBlock: continuedIndent({ except: /^\s*({|else\b)/ }),
+                               WhileLoop: continuedIndent() }),
           foldNodeProp.add({ 'InitList Block ErrBlock SwitchBlock ContainerBlock ParamDeclList FnCallArgs AsmParams': foldInside }) ]
 
 data = { commentTokens: { line: '//' },
