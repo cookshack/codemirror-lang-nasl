@@ -38,7 +38,7 @@ Nasl(SimpleInstr(return, Integer, Integer))
 return 1 + 2 - 3;
 
 ==>
-Nasl(SimpleInstr(return, Integer, Integer, Integer))
+Nasl(SimpleInstr(return, Integer, ArithOp, Integer, ArithOp, Integer))
 
 # -
 
@@ -59,7 +59,7 @@ Nasl(SimpleInstr(return, Integer))
 return 1 * 2 ** 3 / 4 % 5 & 6 ^ 7 | 8 >> 9 >>> 10 << 11;
 
 ==>
-Nasl(SimpleInstr(return, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer))
+Nasl(SimpleInstr(return, Integer, ArithOp, Integer, ArithOp, Integer, ArithOp, Integer, ArithOp, Integer, Integer, Integer, Integer, Integer, Integer, Integer))
 
 # comp
 

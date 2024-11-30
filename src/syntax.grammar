@@ -105,11 +105,10 @@ expr {
   | expr !right '&&' expr
   | '!' expr
   | expr !right '||' expr
-  | expr !right '+' expr
-  | expr !right '-' expr
+  | expr !right ArithOp expr
   | '-' expr
   | '~' expr
-  | expr !right ('*' | '**' | '/' | '%' | '&' | '^' | '|' | '>>' | '>>>' | '<<') expr
+  | expr !right ('&' | '^' | '|' | '>>' | '>>>' | '<<') expr
   | postPreIncr
   // match nomatch re_match re_nomatch ...
   | expr !right ('><' | '>!<' | '=~' | '!~' | '<' | '>' | '==' | '!=' | '>=' | '<=') expr
@@ -143,6 +142,8 @@ IpAddr {
 VarDecl { (kw<'local_var'> | kw<'global_var'>) list<Identifier> }
 
 //// Operators
+
+ArithOp { '+' | '-' | '*' | '**' | '/' | '%'}
 
 AssignOp { '=' | '+=' | '-=' | '*=' | '/=' | '%=' | '>>=' | '>>>=' | '<<=' }
 
@@ -185,7 +186,7 @@ ckw<term> { @extend[@name={term}]<identifier, term> }
 
   // literal tokens
   ';' '{' '}' '(' ')' '[' ']' '=>' ':' '++' '--'
-  '&&' '!' '||' '+' '-' '~' '*' '**' '/' '%' '&' '^' '' '>>' '>>>' '<<'
+  '&&' '!' '||' '~' '&' '^' '' '>>' '>>>' '<<'
   '><' '>!<' '=~' '!~' '<' '>' '==' '!=' '>=' '>=' '<='
 }
 
