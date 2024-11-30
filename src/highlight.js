@@ -9,10 +9,10 @@ export const highlighting = styleTags({
   'FuncDecl/Identifier': t.function(t.definition(t.variableName)),
 
   ArithOp: t.arithmeticOperator,
+  AssignOp: t.definitionOperator,
   LogicOp: t.logicOperator,
   BitwiseOp: t.bitwiseOperator,
   CompareOp: t.compareOperator,
-  AssignOp: t.definitionOperator,
   UpdateOp: t.updateOperator,
   Comment: t.lineComment,
   Integer: t.number,

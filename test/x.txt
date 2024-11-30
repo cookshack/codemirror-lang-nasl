@@ -20,7 +20,7 @@ Nasl(SimpleInstr(return, Identifier))
 x = 1;
 
 ==>
-Nasl(SimpleInstr(Identifier, Integer))
+Nasl(SimpleInstr(Identifier, AssignOp, Integer))
 
 # fn arg
 

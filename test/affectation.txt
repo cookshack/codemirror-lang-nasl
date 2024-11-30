@@ -1,10 +1,9 @@
-
 # aff simple
 
 a = 1;
 
 ==>
-Nasl(SimpleInstr(Identifier, Integer))
+Nasl(SimpleInstr(Identifier, AssignOp, Integer))
 
 # aff
 
@@ -12,4 +11,4 @@ return a >>>= 1;
 
 ==>
 Nasl(SimpleInstr(return,
-                 Aff(Identifier, Integer)))
+                 Aff(Identifier, AssignOp, Integer)))

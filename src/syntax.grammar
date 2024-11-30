@@ -84,17 +84,7 @@ NamedArg { Identifier ':' Expr }
 
 //// Affectation
 
-aff {
-  lvalue '=' expr
-  | lvalue '+=' expr
-  | lvalue '-=' expr
-  | lvalue '*=' expr
-  | lvalue '/=' expr
-  | lvalue '%=' expr
-  | lvalue '>>=' expr
-  | lvalue '>>>=' expr
-  | lvalue '<<=' expr
-}
+aff { lvalue AssignOp expr }
 
 Aff { aff }
 
@@ -148,9 +138,13 @@ IpAddr {
   Integer '.' Integer '.' Integer '.' Integer
 }
 
-// Local/Global var decl
+//// Local/Global var decl
 
 VarDecl { (kw<'local_var'> | kw<'global_var'>) list<Identifier> }
+
+//// Operators
+
+AssignOp { '=' | '+=' | '-=' | '*=' | '/=' | '%=' | '>>=' | '>>>=' | '<<=' }
 
 ////
 
@@ -191,7 +185,6 @@ ckw<term> { @extend[@name={term}]<identifier, term> }
 
   // literal tokens
   ';' '{' '}' '(' ')' '[' ']' '=>' ':' '++' '--'
-  '=' '+=' '-=' '*=' '/=' '%=' '>>=' '>>>=' '<<='
   '&&' '!' '||' '+' '-' '~' '*' '**' '/' '%' '&' '^' '' '>>' '>>>' '<<'
   '><' '>!<' '=~' '!~' '<' '>' '==' '!=' '>=' '>=' '<='
 }

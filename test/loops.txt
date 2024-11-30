@@ -5,7 +5,7 @@ for (i = 10; i; i--)
 
 ==>
 Nasl(ForLoop(for,
-             ForExpr(AffFunc(Identifier, Integer),
+             ForExpr(AffFunc(Identifier, AssignOp, Integer),
                      Identifier,
                      AffFunc(Identifier)),
              SimpleInstr(FuncCall(Identifier,
