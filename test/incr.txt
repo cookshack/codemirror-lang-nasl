@@ -1,0 +1,13 @@
+# ++ simple
+
+a++;
+
+==>
+Nasl(SimpleInstr(Identifier))
+
+# -- expr
+
+return --a;
+
+==>
+Nasl(SimpleInstr(return, Identifier))
