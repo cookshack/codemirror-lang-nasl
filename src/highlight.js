@@ -5,7 +5,7 @@ export const highlighting = styleTags({
   'if else for while repeat until foreach return break continue x': t.controlKeyword,
   'include': t.moduleKeyword,
   'Identifier': t.variableName,
-  'ArgDecl/Identifier': t.definition(t.variableName),
+  'ArgDecl/Identifier VarDecl/Identifier': t.definition(t.variableName),
   'FuncDecl/Identifier': t.function(t.definition(t.variableName)),
 
   ArithOp: t.arithmeticOperator,

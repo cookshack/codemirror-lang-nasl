@@ -38,8 +38,7 @@ SimpleInstr {
   | FuncCall
   | kw<'return'> expr?
   | inc
-  | loc
-  | glob
+  | VarDecl
   | kw<'break'>
   | kw<'continue'>
   | () // NOP
@@ -149,13 +148,9 @@ IpAddr {
   Integer '.' Integer '.' Integer '.' Integer
 }
 
-// Local var decl
+// Local/Global var decl
 
-loc { kw<'local_var'> list<Identifier> }
-
-// Global var decl
-
-glob { kw<'global_var'> list<Identifier> }
+VarDecl { (kw<'local_var'> | kw<'global_var'>) list<Identifier> }
 
 ////
 

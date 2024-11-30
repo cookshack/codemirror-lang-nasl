@@ -13,8 +13,8 @@ Nasl(SimpleInstr(return, Identifier))
 }
 
 ==>
-Nasl(Block(SimpleInstr(local_var,
-                       Identifier)))
+Nasl(Block(SimpleInstr(VarDecl(local_var,
+                               Identifier))))
 
 # loc
 
@@ -23,6 +23,6 @@ Nasl(Block(SimpleInstr(local_var,
 }
 
 ==>
-Nasl(Block(SimpleInstr(global_var,
-                       Identifier,
-                       Identifier)))
+Nasl(Block(SimpleInstr(VarDecl(global_var,
+                               Identifier,
+                               Identifier))))
