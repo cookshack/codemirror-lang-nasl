@@ -1,0 +1,27 @@
+# var
+
+return a;
+
+==>
+Nasl(SimpleInstr(return, Identifier))
+
+
+# loc
+
+{
+  local_var (a);
+}
+
+==>
+Nasl(Block(SimpleInstr(local_var,
+                       ArgDecl(Identifier))))
+
+# loc
+
+{
+  global_var (a, b);
+}
+
+==>
+Nasl(Block(SimpleInstr(global_var,
+                       ArgDecl(Identifier, Identifier))))

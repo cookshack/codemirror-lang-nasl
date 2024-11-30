@@ -73,13 +73,6 @@ Nasl(SimpleInstr(return, IpAddr(Integer, Integer, Integer, Integer)))
 ==>
 Nasl(Comment)
 
-# var
-
-return a;
-
-==>
-Nasl(SimpleInstr(return, Identifier))
-
 # inc
 
 

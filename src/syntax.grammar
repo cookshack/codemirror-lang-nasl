@@ -38,6 +38,8 @@ SimpleInstr {
   | FuncCall
   | kw<'return'> expr?
   | inc
+  | loc
+  | glob
   | kw<'break'>
   | kw<'continue'>
   | () // NOP
@@ -121,7 +123,7 @@ expr {
   | '~' expr
   | expr !right ('*' | '**' | '/' | '%' | '&' | '^' | '|' | '>>' | '>>>' | '<<') expr
   | postPreIncr
-  // match nomatch re_match re_nomatch ... 
+  // match nomatch re_match re_nomatch ...
   | expr !right ('><' | '>!<' | '=~' | '!~' | '<' | '>' | '==' | '!=' | '>=' | '>=' | '<=') expr
   | var
   | Aff
@@ -143,6 +145,16 @@ var { Identifier | ArrayElem | FuncCall }
 IpAddr {
   Integer '.' Integer '.' Integer '.' Integer
 }
+
+// Local var decl
+
+loc { kw<'local_var'> ArgDecl }
+
+// Global var decl
+
+glob { kw<'global_var'> ArgDecl }
+
+////
 
 @skip { whitespace | Comment }
 
