@@ -47,8 +47,7 @@ SimpleInstr {
 
 //// If
 
-IfBlock { kw<'if'> IfExpr instr (!right kw<'else'> instr)? }
-IfExpr { '(' expr ')' }
+IfBlock { kw<'if'> ParenExpr instr (!right kw<'else'> instr)? }
 
 //// Loops
 
@@ -57,12 +56,11 @@ loop { ForLoop | WhileLoop | RepeatLoop | ForeachLoop }
 ForLoop { kw<'for'> ForExpr instr }
 ForExpr { '(' AffFunc ';' expr ';' AffFunc ')' }
 
-WhileLoop { kw<'while'> LoopExpr instr }
-LoopExpr { '(' expr ')' }
+WhileLoop { kw<'while'> ParenExpr instr }
 
 RepeatLoop { kw<'repeat'> instr kw<'until'> expr ';' }
 
-ForeachLoop { kw<'foreach'> Identifier LoopExpr instr }
+ForeachLoop { kw<'foreach'> Identifier ParenExpr instr }
 
 AffFunc { aff | postPreIncr | FuncCall | () /* NOP */ }
 
@@ -114,7 +112,7 @@ postPreIncr { '++' lvalue | '--' lvalue | lvalue '++' | lvalue '--' }
 //// Expression
 
 expr {
-  '(' expr ')'
+  ParenExpr
   | expr !right '&&' expr
   | '!' expr
   | expr !right '||' expr
@@ -132,6 +130,8 @@ expr {
   | atom
   | ConstArray
 }
+
+ParenExpr { '(' expr ')' }
 
 ////
 

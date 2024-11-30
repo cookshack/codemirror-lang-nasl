@@ -3,7 +3,7 @@
 return (9);
 
 ==>
-Nasl(SimpleInstr(return, Integer))
+Nasl(SimpleInstr(return, ParenExpr(Integer)))
 
 # &&
 

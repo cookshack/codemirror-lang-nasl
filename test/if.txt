@@ -4,7 +4,7 @@ if (0) return 1;
 
 ==>
 Nasl(IfBlock(if,
-             IfExpr(Integer),
+             ParenExpr(Integer),
              SimpleInstr(return,
                          Integer)))
 
@@ -14,7 +14,7 @@ if (a) return 1; else return 2;
 
 ==>
 Nasl(IfBlock(if,
-             IfExpr(Identifier),
+             ParenExpr(Identifier),
              SimpleInstr(return,
                          Integer),
              else,
