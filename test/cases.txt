@@ -154,3 +154,13 @@ f();
 ==>
 Nasl(SimpleInstr(FuncCall(Identifier,
                           ArgList)))
+
+# if
+
+if (0) return 1;
+
+==>
+Nasl(IfBlock(if,
+             Integer,
+             SimpleInstr(return,
+                         Integer)))

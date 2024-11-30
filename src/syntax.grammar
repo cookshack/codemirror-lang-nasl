@@ -24,6 +24,7 @@ Block { '{' instr* '}' }
 instr {
   SimpleInstr ';'
   | Block
+  | IfBlock
 }
 
 //// "Simple" Instruction
@@ -37,6 +38,8 @@ SimpleInstr {
 }
 
 //// If
+
+IfBlock { kw<'if'> '(' expr ')' instr }
 
 //// Loops
 
