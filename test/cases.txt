@@ -59,13 +59,6 @@ return;
 ==>
 Nasl(SimpleInstr(return))
 
-# ()
-
-return (9);
-
-==>
-Nasl(SimpleInstr(return, Integer))
-
 # IP
 
 return 0.1.2.3;

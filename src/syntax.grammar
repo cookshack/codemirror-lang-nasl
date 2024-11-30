@@ -1,5 +1,5 @@
 @precedence {
-  else @right
+  right @right
 }
 
 //// Templates
@@ -43,7 +43,7 @@ SimpleInstr {
 
 //// If
 
-IfBlock { kw<'if'> '(' expr ')' instr (!else kw<'else'> instr)? }
+IfBlock { kw<'if'> '(' expr ')' instr (!right kw<'else'> instr)? }
 
 //// Loops
 
@@ -105,6 +105,7 @@ postPreIncr { '++' lvalue | '--' lvalue | lvalue '++' | lvalue '--' }
 
 expr {
   '(' expr ')'
+  | expr !right '&&' expr
   | postPreIncr
   | var
   | Aff

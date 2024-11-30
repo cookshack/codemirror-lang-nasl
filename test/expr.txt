@@ -1,0 +1,20 @@
+# ()
+
+return (9);
+
+==>
+Nasl(SimpleInstr(return, Integer))
+
+# &&
+
+return 0 && 1;
+
+==>
+Nasl(SimpleInstr(return, Integer, Integer))
+
+# && prec
+
+return 0 && 1 && 0;
+
+==>
+Nasl(SimpleInstr(return, Integer, Integer, Integer))
