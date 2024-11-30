@@ -112,6 +112,7 @@ expr {
   | expr !right '-' expr
   | '-' expr
   | '~' expr
+  | expr !right ('*' | '**' | '/' | '%' | '&' | '^' | '|' | '>>' | '>>>' | '<<') expr
   | postPreIncr
   | var
   | Aff
