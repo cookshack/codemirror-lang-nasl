@@ -1,0 +1,10 @@
+# while
+
+while (1)
+  f();
+
+==>
+Nasl(WhileLoop(while,
+               WhileExpr(Integer),
+               SimpleInstr(FuncCall(Identifier,
+                                    ArgList))))

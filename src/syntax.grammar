@@ -26,6 +26,7 @@ instr {
   SimpleInstr ';'
   | Block
   | IfBlock
+  | loop
 }
 
 //// "Simple" Instruction
@@ -43,6 +44,11 @@ SimpleInstr {
 IfBlock { kw<'if'> '(' expr ')' instr (!else kw<'else'> instr)? }
 
 //// Loops
+
+loop { WhileLoop }
+
+WhileLoop { kw<'while'> WhileExpr instr }
+WhileExpr { '(' expr ')' }
 
 ////
 
