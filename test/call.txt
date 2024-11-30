@@ -1,0 +1,30 @@
+# call
+
+return f();
+
+==>
+Nasl(SimpleInstr(return,
+                 FuncCall(Identifier,
+                          ArgList)))
+
+
+# call args
+
+return f(1, a, x: "abc");
+
+==>
+Nasl(SimpleInstr(return,
+                 FuncCall(Identifier,
+                          ArgList(Integer,
+                                  Identifier,
+                                  NamedArg(Identifier,
+                                           String)))))
+
+# simple call
+
+f();
+
+==>
+Nasl(SimpleInstr(FuncCall(Identifier,
+                          ArgList)))
+
