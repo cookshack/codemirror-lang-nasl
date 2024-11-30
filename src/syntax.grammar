@@ -114,6 +114,8 @@ expr {
   | '~' expr
   | expr !right ('*' | '**' | '/' | '%' | '&' | '^' | '|' | '>>' | '>>>' | '<<') expr
   | postPreIncr
+  // match nomatch re_match re_nomatch ... 
+  | expr !right ('><' | '>!<' | '=~' | '!~' | '<' | '>' | '==' | '!=' | '>=' | '>=' | '<=') expr
   | var
   | Aff
   | IpAddr
@@ -170,7 +172,8 @@ kw<term> { @specialize[@name={term}]<identifier, term> }
   // literal tokens
   ';' '{' '}' '(' ')' '[' ']' '=>' ':' '++' '--'
   '=' '+=' '-=' '*=' '/=' '%=' '>>=' '>>>=' '<<='
-  '&&' '!' '||' '+' '-' '~'
+  '&&' '!' '||' '+' '-' '~' '*' '**' '/' '%' '&' '^' '' '>>' '>>>' '<<'
+  '><' '>!<' '=~' '!~' '<' '>' '==' '!=' '>=' '>=' '<='
 }
 
 //@external propSource highlighting from './highlight'
