@@ -32,7 +32,8 @@ instr {
 //// "Simple" Instruction
 
 SimpleInstr {
-  postPreIncr
+  aff
+  | postPreIncr
   | FuncCall
   | kw<'return'> expr?
   | kw<'break'>
@@ -71,6 +72,20 @@ NamedArg { Identifier ':' expr }
 
 //// Affectation
 
+aff {
+  lvalue '=' expr
+  | lvalue '+=' expr
+  | lvalue '-=' expr
+  | lvalue '*=' expr
+  | lvalue '/=' expr
+  | lvalue '%=' expr
+  | lvalue '>>=' expr
+  | lvalue '>>>=' expr
+  | lvalue '<<=' expr
+}
+
+Aff { aff }
+
 ////
 
 lvalue { Identifier | ArrayElem }
@@ -87,6 +102,7 @@ expr {
   '(' expr ')'
   | postPreIncr
   | var
+  | Aff
   | IpAddr
   | atom
   | ConstArray
@@ -140,6 +156,7 @@ kw<term> { @specialize[@name={term}]<identifier, term> }
 
   // literal tokens
   ';' '{' '}' '(' ')' '[' ']' '=>' ':' '++' '--'
+  '=' '+=' '-=' '*=' '/=' '%=' '>>=' '>>>=' '<<='
 }
 
 //@external propSource highlighting from './highlight'
