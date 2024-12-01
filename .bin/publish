@@ -7,8 +7,7 @@ echo CURRENT: $CURRENT
 echo VERSION: $VERSION
 if [ "$CURRENT" != "$VERSION" ]; then
   echo Publishing...
-  set +x
-  set -x
+  npm publish --access public
 else
   echo Up to date.
 fi

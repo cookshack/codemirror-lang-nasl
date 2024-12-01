@@ -4,6 +4,7 @@ packages:
   - npm
 secrets:
   - e2e843cf-6f7e-4b74-989f-819a97ca70b8
+  - 693e186a-109b-4e62-9d15-a123679909cc
 sources:
   - git+ssh://git@git.sr.ht/~mattmundell/codemirror-lang-nasl
 tasks:
