@@ -1,4 +1,6 @@
 image: alpine/3.20
+packages:
+  - nodejs
 secrets:
   - e2e843cf-6f7e-4b74-989f-819a97ca70b8
 sources:
@@ -14,3 +16,6 @@ tasks:
       git remote add github git@github.com:cookshack/codemirror-lang-nasl.git
       ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
       git push github main
+  - publish: |
+      cd codemirror-lang-nasl
+      node --version
