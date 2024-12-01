@@ -1,4 +1,4 @@
-image: alpine/edge
+image: alpine
 secrets:
   - e2e843cf-6f7e-4b74-989f-819a97ca70b8
 sources:
