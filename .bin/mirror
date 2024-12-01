@@ -6,7 +6,7 @@ if [ "$(git rev-parse origin/main)" != "$(git rev-parse HEAD)" ]; then
   exit
 fi
 
-export NAME=$(npm pkg get name | tr -d '"')
+export NAME=$(npm pkg get name | tr -d '"@')
 echo NAME: $NAME
 git remote add github git@github.com:$NAME.git
 ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
