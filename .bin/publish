@@ -6,7 +6,7 @@ export VERSION=$(npm pkg get version | tr -d '"')
 echo CURRENT: $CURRENT
 echo VERSION: $VERSION
 if [ "$CURRENT" != "$VERSION" ]; then
-  echo Publishing...
+  npm i
   npm publish --access public
 else
   echo Up to date.
