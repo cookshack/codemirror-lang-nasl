@@ -10,16 +10,7 @@ sources:
 environment:
   PKG: codemirror-lang-nasl
 tasks:
-  - check: |
-      cd $PKG
-      if [ "$(git rev-parse origin/main)" != "$(git rev-parse HEAD)" ]; then \
-        complete-build; \
-      fi
   - mirror: |
-      cd $PKG
-      git remote add github git@github.com:cookshack/$PKG.git
-      ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
-      git push github main
+      cd $PKG && .bin/mirror
   - publish: |
-      cd $PKG
-      .bin/publish
+      cd $PKG && .bin/publish
