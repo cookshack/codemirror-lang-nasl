@@ -18,11 +18,4 @@ tasks:
       git push github main
   - publish: |
       cd codemirror-lang-nasl
-      node --version
-      export CURRENT=$(npm view @cookshack/codemirror-lang-nasl version)
-      export VERSION=$(npm pkg get version)
-      echo CURRENT: $CURRENT
-      echo VERSION: $VERSION
-      if [ "$CURRENT" != "$VERSION" ]; then \
-        echo Publishing... \
-      fi
+      .bin/publish

@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+echo NODE: $(node --version)
+export CURRENT=$(npm view @cookshack/codemirror-lang-nasl version)
+export VERSION=$(npm pkg get version | tr -d '"')
+echo CURRENT: $CURRENT
+echo VERSION: $VERSION
+if [ "$CURRENT" != "$VERSION" ]; then
+  echo Publishing...
+  set +x
+  set -x
+else
+  echo Up to date.
+fi
