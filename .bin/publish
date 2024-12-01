@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 
 echo NODE: $(node --version)
-export CURRENT=$(npm view @cookshack/codemirror-lang-nasl version)
+export NAME=$(npm pkg get name | tr -d '"')
+export CURRENT=$(npm view $NAME version)
 export VERSION=$(npm pkg get version | tr -d '"')
+echo NAME: $NAME
 echo CURRENT: $CURRENT
 echo VERSION: $VERSION
 if [ "$CURRENT" != "$VERSION" ]; then
