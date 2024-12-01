@@ -7,17 +7,19 @@ secrets:
   - 693e186a-109b-4e62-9d15-a123679909cc
 sources:
   - git+ssh://git@git.sr.ht/~mattmundell/codemirror-lang-nasl
+environment:
+  PKG: codemirror-lang-nasl
 tasks:
   - check: |
-      cd codemirror-lang-nasl
+      cd $PKG
       if [ "$(git rev-parse origin/main)" != "$(git rev-parse HEAD)" ]; then \
         complete-build; \
       fi
   - mirror: |
-      cd codemirror-lang-nasl
-      git remote add github git@github.com:cookshack/codemirror-lang-nasl.git
+      cd $PKG
+      git remote add github git@github.com:cookshack/$PKG.git
       ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
       git push github main
   - publish: |
-      cd codemirror-lang-nasl
+      cd $PKG
       .bin/publish
