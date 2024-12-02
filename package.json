@@ -4,9 +4,9 @@
   "description": "NASL language support for CodeMirror 6",
   "homepage": "https://git.sr.ht/~mattmundell/codemirror-lang-nasl",
   "scripts": {
-    "check": "NODE_OPTIONS=--disable-warning=ExperimentalWarning npx eslint --no-warn-ignored -f ./eslint-formatter.mjs src/*.js",
-    "test": "mocha test/test.js",
-    "prepare": "husky && rollup -c"
+    "check": "./node_modules/@cookshack/build/bin/check src/*.js",
+    "prepare": "./node_modules/@cookshack/build/bin/prepare",
+    "test": "mocha test/test.js"
   },
   "repository": {
     "type": "git",
@@ -28,7 +28,8 @@
     "@lezer/lr": "^1.0.0"
   },
   "devDependencies": {
-    "@cookshack/eslint-config": "^0.1.5",
+    "@cookshack/build": "^0.2.0",
+    "@cookshack/eslint-config": "^0.1.6",
     "@lezer/generator": "^1.0.0",
     "eslint": "^9.16.0",
     "husky": "^9.1.7",
