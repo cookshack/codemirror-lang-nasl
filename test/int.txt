@@ -1,0 +1,14 @@
+# 0x
+
+i = 0x01FA2 + 0x0 + 0x9 + 0xa;
+
+==>
+Nasl(SimpleInstr(Identifier,
+                 AssignOp,
+                 Integer,
+                 ArithOp,
+                 Integer,
+                 ArithOp,
+                 Integer,
+                 ArithOp,
+                 Integer))
