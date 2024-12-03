@@ -15,8 +15,15 @@ Nasl(SimpleInstr(return, String))
 
 # str esc x
 
-return 'a\x062c';
+return 'a\x06c';
 
 ==>
 Nasl(SimpleInstr(return, String))
 
+
+# '\xFF\xFF'
+
+return '\xFF\xFF';
+
+==>
+Nasl(SimpleInstr(return, String))

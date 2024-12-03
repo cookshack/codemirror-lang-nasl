@@ -181,7 +181,7 @@ ckw<term> { @extend[@name={term}]<identifier, term> }
 
   char {
     '\\' $[\\nftrv"0'\n]
-    | '\\x' xChar xChar xChar
+    | '\\x' xChar xChar
     | !['\\]
   }
 
